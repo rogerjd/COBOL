@@ -4,10 +4,14 @@
       * Purpose:
       * Tectonics: cobc
       ******************************************************************
+      * div order is fixed, sections seem to be too
        IDENTIFICATION DIVISION.
        PROGRAM-ID. YOUR-PROGRAM-NAME.
        ENVIRONMENT DIVISION.
        CONFIGURATION SECTION.
+       SOURCE-COMPUTER.
+       OBJECT-COMPUTER.
+       SPECIAL-NAMES.
        INPUT-OUTPUT SECTION.
        DATA  DIVISION.
        FILE SECTION.
@@ -17,6 +21,6 @@
       * use paragraph not sections ? MAIN is a paragraph
        xzz.
        tst SECTION.
-           DISPLAY "Hello worldxxx".
+           DISPLAY "Hello world".
            STOP RUN.
        END PROGRAM YOUR-PROGRAM-NAME.
