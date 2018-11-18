@@ -18,11 +18,17 @@
        WORKING-STORAGE SECTION.
        77  B PIC 9(3).
        77  B1 PIC ZZ9.
+       01  MARITAL-STATUS PIC 9 VALUE 2.
+       88  SINGLE VALUE IS 1.
+       88  MARRIED VALUE IS 2.
+
        PROCEDURE DIVISION.
        MAIN.
       * use paragraph not sections ? MAIN is a paragraph
            PERFORM ADDTst.
-           PERFORM BBB
+           PERFORM BBB.
+           PERFORM CONDITIONAL-NAME-TEST.
+           PERFORM IF-TEST.
            DISPLAY 'MAIN END'.
            STOP RUN.
        xzz.
@@ -35,4 +41,20 @@
            ADD 3 to B.
            MOVE B to B1.
            DISPLAY B, B1.
-       END PROGRAM YOUR-PROGRAM-NAME.
+       COND-TEST SECTION.
+       CONDITIONAL-NAME-TEST.
+           IF SINGLE DISPLAY "SINGLE".
+           IF MARRIED DISPLAY "MARRIED".
+
+       IF-TEST.
+           IF 0=0
+               IF 0=0
+                   DISPLAY "TRUE"
+               ELSE
+                   DISPLAY "FALSE"
+               END-IF
+               DISPLAY "x"
+           ELSE
+               DISPLAY "F".
+
+       EXIT PROGRAM YOUR-PROGRAM-NAME.
