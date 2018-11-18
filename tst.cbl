@@ -57,4 +57,4 @@
            ELSE
                DISPLAY "F".
 
-       EXIT PROGRAM YOUR-PROGRAM-NAME.
+       EXIT PROGRAM.
