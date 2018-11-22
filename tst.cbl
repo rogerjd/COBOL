@@ -29,7 +29,7 @@
        MAIN.
       * use paragraph not sections ? MAIN is a paragraph
            PERFORM HELLO.
-           PERFORM ADD-TST THRU DIV-TEST.
+           PERFORM ADD-TEST THRU DIV-TEST.
            PERFORM CONDITIONAL-NAME-TEST THRU IF-TEST.
            PERFORM VARYING-TST THRU TIMES-TST.
            DISPLAY 'MAIN END'.
