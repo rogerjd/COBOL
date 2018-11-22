@@ -48,7 +48,7 @@
            IF MARRIED DISPLAY "MARRIED".
 
        IF-TEST.
-       NESTED-IF.
+      *NESTED-IF.  //PARAGRAPH
       * ELSE paired with previous IF-TEST
       * last period ends IF 'sentence'
       * can use END-IF  probably best (else is part of if, so end-if encloses both
