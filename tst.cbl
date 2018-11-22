@@ -20,6 +20,7 @@
        01  q pic 99V99.
        77  B PIC 9(3).
        77  B1 PIC ZZ9.
+       77  MSG PIC X(25).
        01  MARITAL-STATUS PIC 9 VALUE 2.
        88  SINGLE VALUE IS 1.
        88  MARRIED VALUE IS 2.
@@ -30,7 +31,7 @@
            PERFORM ADDTst THRU DivTst.
            PERFORM BBB.
            PERFORM CONDITIONAL-NAME-TEST THRU IF-TEST.
-           PERFORM VARYING-TST.
+           PERFORM VARYING-TST THRU TIMES-TST.
            DISPLAY 'MAIN END'.
            STOP RUN.
        xzz.
@@ -68,11 +69,15 @@
                DISPLAY "F"
            END-IF.
 
-       LOOP-SECTION.
+       LOOP SECTION.
            VARYING-TST.
+               DISPLAY "PERFORM UNTIL."
                PERFORM DISPLAY-PARA VARYING n from 1 by 1 UNTIL n > 3.
+           TIMES-TST.
+               DISPLAY "PERFORM TIMES."
+               PERFORM DISPLAY-PARA 5 TIMES.
 
-       UTILS-SECTION.
+       UTILS SECTION.
            DISPLAY-PARA.
                DISPLAY n.
 
