@@ -41,12 +41,17 @@
            ADD 3 to B.
            MOVE B to B1.
            DISPLAY B, B1.
+
        COND-TEST SECTION.
        CONDITIONAL-NAME-TEST.
            IF SINGLE DISPLAY "SINGLE".
            IF MARRIED DISPLAY "MARRIED".
 
        IF-TEST.
+       NESTED-IF.
+      * ELSE paired with previous IF-TEST
+      * last period ends IF 'sentence'
+      * can use END-IF  probably best (else is part of if, so end-if encloses both
            IF 0=0
                IF 0=0
                    DISPLAY "TRUE"
@@ -55,6 +60,8 @@
                END-IF
                DISPLAY "x"
            ELSE
-               DISPLAY "F".
+               DISPLAY "F"
+           END-IF
 
+      *END PROGRAM "YOUR-PROGRAM-NAME".
        EXIT PROGRAM.
