@@ -72,6 +72,7 @@
            VARYING-TST.
                PERFORM DISPLAY-PARA VARYING n from 1 by 1 UNTIL n > 3.
 
+       UTILS-SECTION.
            DISPLAY-PARA.
                DISPLAY n.
 
