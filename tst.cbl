@@ -16,6 +16,8 @@
        DATA  DIVISION.
        FILE SECTION.
        WORKING-STORAGE SECTION.
+       01  n PIC 99.
+       01  q pic 99V99.
        77  B PIC 9(3).
        77  B1 PIC ZZ9.
        01  MARITAL-STATUS PIC 9 VALUE 2.
@@ -25,10 +27,10 @@
        PROCEDURE DIVISION.
        MAIN.
       * use paragraph not sections ? MAIN is a paragraph
-           PERFORM ADDTst.
+           PERFORM ADDTst THRU DivTst.
            PERFORM BBB.
-           PERFORM CONDITIONAL-NAME-TEST.
-           PERFORM IF-TEST.
+           PERFORM CONDITIONAL-NAME-TEST THRU IF-TEST.
+           PERFORM VARYING-TST.
            DISPLAY 'MAIN END'.
            STOP RUN.
        xzz.
@@ -41,6 +43,9 @@
            ADD 3 to B.
            MOVE B to B1.
            DISPLAY B, B1.
+       DivTst.
+           DIVIDE 5 by 2 GIVING n REMAINDER q.
+           DISPLAY n, " ", q.
 
        COND-TEST SECTION.
        CONDITIONAL-NAME-TEST.
@@ -61,7 +66,14 @@
                DISPLAY "x"
            ELSE
                DISPLAY "F"
-           END-IF
+           END-IF.
+
+       LOOP-SECTION.
+           VARYING-TST.
+               PERFORM DISPLAY-PARA VARYING n from 1 by 1 UNTIL n > 3.
+
+           DISPLAY-PARA.
+               DISPLAY n.
 
       *END PROGRAM "YOUR-PROGRAM-NAME".
        EXIT PROGRAM.
