@@ -28,23 +28,23 @@
        PROCEDURE DIVISION.
        MAIN.
       * use paragraph not sections ? MAIN is a paragraph
-           PERFORM ADDTst THRU DivTst.
-           PERFORM BBB.
+           PERFORM HELLO.
+           PERFORM ADD-TST THRU DIV-TEST.
            PERFORM CONDITIONAL-NAME-TEST THRU IF-TEST.
            PERFORM VARYING-TST THRU TIMES-TST.
            DISPLAY 'MAIN END'.
            STOP RUN.
-       xzz.
-       tst SECTION.
-       BBB.
+
+       BEGIN SECTION.
+       HELLO.
            DISPLAY "Hello world".
 
-       math SECTION.
-       ADDTst.
+       MATH SECTION.
+       ADD-TEST.
            ADD 3 to B.
            MOVE B to B1.
            DISPLAY B, B1.
-       DivTst.
+       DIV-TEST.
            DIVIDE 5 by 2 GIVING n REMAINDER q.
            DISPLAY n, " ", q.
 
