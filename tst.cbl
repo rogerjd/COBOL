@@ -79,7 +79,8 @@
       * X in 9  todo
        DISPLAY "Class Test".
        ACCEPT n.
-       IF n NUMERIC
+       DISPLAY n.
+       IF n IS NUMERIC THEN
            DISPLAY "numeric"
        ELSE
            DISPLAY "not numeric".
