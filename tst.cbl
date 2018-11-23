@@ -78,8 +78,9 @@
        CLASS-TEST.
       * X in 9  todo
        DISPLAY "Class Test".
-       ACCEPT n.
-       DISPLAY n.
+       DISPLAY n.  *> orig value (eg: 2)
+       ACCEPT n.   *> tt
+       DISPLAY n.  *> 00
        IF n IS NUMERIC THEN
            DISPLAY "numeric"
        ELSE
