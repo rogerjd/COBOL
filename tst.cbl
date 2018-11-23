@@ -27,7 +27,7 @@
 
        01  I PIC 9 VALUE 1.
        01  I2 REDEFINES I PIC X.
-       01  I3 PIC X VALUE "Z".
+       01  I3 PIC XX VALUE "Z1".
        01  I4 REDEFINES I3 PIC 9.
 
        PROCEDURE DIVISION.
@@ -35,7 +35,7 @@
       * use paragraph not sections ? MAIN is a paragraph
            PERFORM HELLO.
            PERFORM ADD-TEST THRU DIV-TEST.
-           PERFORM CONDITIONAL-NAME-TEST THRU IF-TEST.
+           PERFORM CONDITIONAL-NAME-TEST THRU CLASS-TEST.
            PERFORM VARYING-TST THRU TIMES-TST.
            PERFORM REDEFINES-TST.
            DISPLAY 'MAIN END'.
@@ -77,6 +77,12 @@
 
        CLASS-TEST.
       * X in 9  todo
+       DISPLAY "Class Test".
+       ACCEPT n.
+       IF n NUMERIC
+           DISPLAY "numeric"
+       ELSE
+           DISPLAY "not numeric".
 
        LOOP SECTION.
            VARYING-TST.
@@ -91,6 +97,8 @@
                DISPLAY "REDEFINES".
                DISPLAY I, " ", I2.
                DISPLAY I3, " ", I4.
+               ADD 1 to I4.
+               DISPLAY I4.
 
        UTILS SECTION.
            DISPLAY-PARA.
