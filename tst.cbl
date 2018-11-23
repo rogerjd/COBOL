@@ -25,6 +25,9 @@
        88  SINGLE VALUE IS 1.
        88  MARRIED VALUE IS 2.
 
+       01  I PIC 9 VALUE 1.
+       01  I2 REDEFINES I PIC X.
+
        PROCEDURE DIVISION.
        MAIN.
       * use paragraph not sections ? MAIN is a paragraph
@@ -32,6 +35,7 @@
            PERFORM ADD-TEST THRU DIV-TEST.
            PERFORM CONDITIONAL-NAME-TEST THRU IF-TEST.
            PERFORM VARYING-TST THRU TIMES-TST.
+           PERFORM REDEFINES-TST.
            DISPLAY 'MAIN END'.
            STOP RUN.
 
@@ -76,6 +80,10 @@
            TIMES-TST.
                DISPLAY "PERFORM TIMES."
                PERFORM DISPLAY-PARA 5 TIMES.
+
+       REDEFINES-RENAMES SECTION.
+           REDEFINES-TST.
+               DISPLAY I, " ", I2.
 
        UTILS SECTION.
            DISPLAY-PARA.
