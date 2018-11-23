@@ -27,6 +27,8 @@
 
        01  I PIC 9 VALUE 1.
        01  I2 REDEFINES I PIC X.
+       01  I3 PIC X VALUE "Z".
+       01  I4 REDEFINES I3 PIC 9.
 
        PROCEDURE DIVISION.
        MAIN.
@@ -73,6 +75,9 @@
                DISPLAY "F"
            END-IF.
 
+       CLASS-TEST.
+      * X in 9  todo
+
        LOOP SECTION.
            VARYING-TST.
                DISPLAY "PERFORM UNTIL."
@@ -83,7 +88,9 @@
 
        REDEFINES-RENAMES SECTION.
            REDEFINES-TST.
+               DISPLAY "REDEFINES".
                DISPLAY I, " ", I2.
+               DISPLAY I3, " ", I4.
 
        UTILS SECTION.
            DISPLAY-PARA.
