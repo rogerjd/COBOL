@@ -17,7 +17,13 @@
        FILE SECTION.
        WORKING-STORAGE SECTION.
        01  n PIC 99.
+       01  m PIC XX.
        01  q pic 99V99.
+      *REDEFINES
+       01  Z PIC X(6).
+       01  Z2 REDEFINES Z.
+       05  Z2a PIC XX.
+       05  Z2b PIC X(4).
        77  B PIC 9(3).
        77  B1 PIC ZZ9.
        77  MSG PIC X(25).
@@ -77,14 +83,21 @@
 
        CLASS-TEST.
       * X in 9  todo
-       DISPLAY "Class Test".
-       DISPLAY n.  *> orig value (eg: 2)
-       ACCEPT n.   *> tt
-       DISPLAY n.  *> 00
-       IF n IS NUMERIC THEN
-           DISPLAY "numeric"
-       ELSE
-           DISPLAY "not numeric".
+           DISPLAY "Class Test".
+           DISPLAY n.  *> orig value (eg: 2)
+           ACCEPT n.   *> tt
+           DISPLAY n.  *> 00
+           IF n IS NUMERIC THEN
+               DISPLAY "numeric"
+           ELSE
+               DISPLAY "not numeric".
+
+           MOVE '1A' to m.
+           IF m IS NUMERIC
+               DISPLAY "numeric"
+           ELSE
+               DISPLAY 'not numeric'.
+
 
        LOOP SECTION.
            VARYING-TST.
@@ -95,12 +108,16 @@
                PERFORM DISPLAY-PARA 5 TIMES.
 
        REDEFINES-RENAMES SECTION.
+
            REDEFINES-TST.
                DISPLAY "REDEFINES".
                DISPLAY I, " ", I2.
                DISPLAY I3, " ", I4.
-               ADD 1 to I4.
+      *        ADD 1 to I4.  cant add 1 to alpha (get exit code 1)
                DISPLAY I4.
+
+               MOVE 'ABDDEF' TO Z.
+               DISPLAY Z, ' ', Z2a, ' ', Z2b.
 
        UTILS SECTION.
            DISPLAY-PARA.
